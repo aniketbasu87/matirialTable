@@ -1,0 +1,19 @@
+/* You can add global styles to this file, and also import other style files */
+$asset-base-path: './assets' !default;
+$images: (
+  "imageURL": "bg.jpg"
+);
+@function get_image_url($key) {
+  $imageName:map-get($images, $key);
+
+  @return url($asset-base-path + '/images/' + $imageName);
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: get_image_url("imageURL");
+}
